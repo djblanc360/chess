@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div className='bg-red-300 p-4'>
+      <div className='p-4'>
         <Board />
       </div>
     </>

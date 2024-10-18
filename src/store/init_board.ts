@@ -1,5 +1,5 @@
-import { Color, Board } from '../types/board'
-import { Piece } from '../types/piece'
+import { Board, Color } from '../types/board'
+import type { Piece } from '../types/piece'
 
 import ChessSet from '@services/chess_pieces'
 
@@ -27,8 +27,10 @@ export default class InitialBoard implements Board {
 
     build(): (Piece | null)[][] {
         const board: (Piece | null)[][] = new Array(ROWS);
+        console.log('board', board)
 
         for (let i=0;i<ROWS;i++) {
+            board[i] = new Array(COLS);
 
             switch (i) {
                 case 0:
@@ -39,7 +41,8 @@ export default class InitialBoard implements Board {
                             color: Color.White,
                             position: [i, j], // tuple
                             hasMoved: false,
-                            isCaptured: false
+                            isCaptured: false,
+                            image: order[j].image
                         }
                     }
                     break;
@@ -52,7 +55,8 @@ export default class InitialBoard implements Board {
                             color: Color.White,
                             position: [i, j],
                             hasMoved: false,
-                            isCaptured: false
+                            isCaptured: false,
+                            image: ChessSet.Pawn.image
                         };
                     }
                     break;
@@ -65,7 +69,8 @@ export default class InitialBoard implements Board {
                             color: Color.Black,
                             position: [i, j],
                             hasMoved: false,
-                            isCaptured: false
+                            isCaptured: false,
+                            image: ChessSet.Pawn.image
                         };
                     }
                     break;
@@ -78,7 +83,8 @@ export default class InitialBoard implements Board {
                             color: Color.Black,
                             position: [i, j],
                             hasMoved: false,
-                            isCaptured: false
+                            isCaptured: false,
+                            image: order[j].image
                         }
                     }
                     break;

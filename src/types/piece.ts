@@ -13,13 +13,19 @@ export interface Piece {
 	type: ChessPiece;
 	color: Color;
 	position?: [number, number]; // coordinates on the board [row, column]
-	hasMoved: boolean; // useful for things like castling or pawn's first move
-	isCaptured: boolean; // to track if the piece has been captured
+	hasMoved: boolean; // for things like castling or pawn's first move
+	isCaptured: boolean; // track if piece has been captured
+	image: {
+		[Color.White]: string;
+		[Color.Black]: string;
+	};
 }
 
+
 export interface Move {
-	from: [number, number]; // initial position of the piece
-	to: [number, number]; // new position of the piece
-	piece: Piece; // the piece that moved
-	capturedPiece?: Piece; // optional, if a piece was captured
+	from: [number, number];
+	to: [number, number];
+	piece: Piece; // piece that moved
+	capturedPiece?: Piece; // if piece was captured
 }
+

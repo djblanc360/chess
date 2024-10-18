@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-// import invoiceReducer from './invoiceSlice';
-// import authReducer from './authSlice';
+import boardReducer from './boardSlice'
 
 export const store = configureStore({
   reducer: {
-    // invoices: invoiceReducer,
-    // auth: authReducer,
+    board: boardReducer,
   },
 })
 
