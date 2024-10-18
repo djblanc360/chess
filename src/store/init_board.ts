@@ -34,12 +34,12 @@ export default class InitialBoard implements Board {
 
             switch (i) {
                 case 0:
-                    // white major pieces
+                    // black major pieces
                     for (let j=0;j<COLS;j++) {
                         board[i][j] = {
                             ...order[j],
-                            color: Color.White,
-                            position: [i, j], // tuple
+                            color: Color.Black,
+                            position: [i, j],
                             hasMoved: false,
                             isCaptured: false,
                             image: order[j].image
@@ -47,21 +47,8 @@ export default class InitialBoard implements Board {
                     }
                     break;
 
-                case 1:
-                    // white pawns
-                    for (let j=0;j<COLS;j++) {
-                        board[i][j] = {
-                            type: ChessSet.Pawn.type,
-                            color: Color.White,
-                            position: [i, j],
-                            hasMoved: false,
-                            isCaptured: false,
-                            image: ChessSet.Pawn.image
-                        };
-                    }
-                    break;
 
-                case 6:
+                case 1:
                     // black pawns
                     for (let j=0;j<COLS;j++) {
                         board[i][j] = {
@@ -74,14 +61,28 @@ export default class InitialBoard implements Board {
                         };
                     }
                     break;
+
+                case 6:
+                    // white pawns
+                    for (let j=0;j<COLS;j++) {
+                        board[i][j] = {
+                            type: ChessSet.Pawn.type,
+                            color: Color.White,
+                            position: [i, j],
+                            hasMoved: false,
+                            isCaptured: false,
+                            image: ChessSet.Pawn.image
+                        };
+                    }
+                    break;
                 
                 case 7:
-                    // black major pieces
+                    // white major pieces
                     for (let j=0;j<COLS;j++) {
                         board[i][j] = {
                             ...order[j],
-                            color: Color.Black,
-                            position: [i, j],
+                            color: Color.White,
+                            position: [i, j], // tuple
                             hasMoved: false,
                             isCaptured: false,
                             image: order[j].image
