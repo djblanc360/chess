@@ -67,6 +67,8 @@ const boardSlice = createSlice({
 
 export const { selectPiece, dragPiece, dropPiece, reset } = boardSlice.actions;
 
-export const boardLayout = (state: { board: PieceState}) => state.board.pieces;
+export const boardPieces = (state: { board: PieceState}) => state.board.pieces;
+export const selectedPiece = (state: { board: PieceState}) => state.board.selectedPiece;
+export const dragPosition = (state: { board: PieceState}) => state.board.dragPosition;
 
 export default boardSlice.reducer;

@@ -11,6 +11,9 @@ export interface Position {
     currY: number;
   }
   
+  /**
+   * visual feedback of drag
+   */
   export default class Drag {
     position: Position;
     piece: HTMLElement;
@@ -55,10 +58,14 @@ export interface Position {
         document.removeEventListener('mousemove', this.mouseMove);
         document.removeEventListener('mouseup', this.mouseUp);
 
+        /*
         const finalX = e.clientX;
         const finalY = e.clientY;
 
         // return final position for potential logic
         return { finalX, finalY };
+        */
+        this.piece.style.transform = `translate(0, 0)`;
+
     }
 }

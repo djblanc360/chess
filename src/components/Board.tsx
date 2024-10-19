@@ -1,8 +1,10 @@
 import { useAppSelector } from '@store/hooks'
-import { boardLayout} from '@store/boardSlice'
+import { boardPieces} from '@store/boardSlice'
+
+import ChessPiece from '@components/ChessPiece'
 
 const Board = () => {
-    const pieces = useAppSelector(boardLayout);
+    const pieces = useAppSelector(boardPieces);
     console.log('pieces', pieces)
     return (
         <div className='grid grid-rows-8 grid-cols-8 gap-[1px] w-[448px] h-[448px] border-2 border-black'>
@@ -11,15 +13,12 @@ const Board = () => {
                     <div
                         key={`${i}-${j}`}
                         className={`
-                            w-14 h-14 ${(i + j) % 2 === 0  ? 'bg-light' : 'bg-dark'}
+                            w-[60px] h-[60px] ${(i + j) % 2 === 0  ? 'bg-light' : 'bg-dark'}
                         `}
                     >
                         {
                             piece && (
-                                <img
-                                    src={piece.image[piece.color]}
-                                    alt={`${piece.type} ${piece.color}`}
-                                />
+                                <ChessPiece piece={piece} />
                             )
                         }
                     </div>

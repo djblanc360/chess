@@ -3,8 +3,10 @@ import type { Piece } from '../types/piece'
 
 import ChessSet from '@services/chess_pieces'
 
-const ROWS: number = 8;
-const COLS: number = 8;
+type ROW = number;
+type COL = number;
+const ROWS: ROW = 8;
+const COLS: COL = 8;
 
 const order: Piece[] = [
     ChessSet.Rook,
